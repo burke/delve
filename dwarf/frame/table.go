@@ -160,10 +160,6 @@ func (frame *FrameContext) ExecuteUntilPC(instructions []byte) {
 	for frame.address >= frame.loc && frame.buf.Len() > 0 {
 		executeDwarfInstruction(frame)
 	}
-	// make sure we get the update cfa offset
-	if frame.buf.Len() > 0 {
-		executeDwarfInstruction(frame)
-	}
 }
 
 func executeDwarfInstruction(frame *FrameContext) {
